@@ -1,0 +1,39 @@
+﻿@using KodrisProject.Utilities;
+
+@{
+    ViewData["Title"] = "Sort Algorithm Management";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Sort Algorithm Management</h1>
+    <p>With this application you can sort arrays using different sorting algorithms.</p>
+
+    <form method="post" action="/Sorting/Execute">
+        <div class="form-group">
+            <label for="numbers">Enter the Sequence to be sorted (Ex: 5, 3, 8, 1):</label>
+            <input type="text" class="form-control" id="numbers" name="numbers" required>
+        </div>
+        <div class="form-group">
+            <label for="algorithm">Select Sort Algorithm:</label>
+            <select class="form-control" id="algorithm" name="algorithm">
+                @foreach (var algorithm in Enum.GetValues(typeof(SortingAlgorithmTypes)))
+                {
+                    <option value="@algorithm">@algorithm</option>
+                }
+            </select>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Sort</button>
+    </form>
+
+    <br />
+
+    <a href="/Sorting/History" class="btn btn-secondary">View History</a>
+</div>
+
+<script>
+document.getElementById('numbers').oninvalid = function(event) {
+    event.target.setCustomValidity('Please fill this field.');
+};
+</script>

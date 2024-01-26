@@ -1,0 +1,30 @@
+@model List<SortingHistory>
+
+@{
+    ViewData["Title"] = "Sorting History";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Sorting History</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Algorithm</th>
+                <th>Input</th>
+                <th>Output</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var historyItem in Model)
+            {
+                <tr>
+                    <td>@historyItem.Algorithm</td>
+                    <td>@historyItem.Input</td>
+                    <td>@historyItem.Output</td>
+                    <td>@historyItem.SortDate.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

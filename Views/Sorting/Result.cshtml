@@ -1,0 +1,8 @@
+@model SortResultViewModel
+
+<div class="text-center">
+    <h2>Sorting Result</h2>
+    <p class="sorting-result">@string.Join(", ", Model.SortedArray)</p>
+    <p>Elapsed Time : @Model.ElapsedTime</p>
+     <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Go back</a>
+</div>
